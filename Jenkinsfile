@@ -11,7 +11,7 @@ node {
     stage('Build image') {
         /* This builds the actual image from Docker File */
 
-        cicdcd = docker.build("raikwar141/thephotocraze")
+        cicdcd = docker.build("mitrasonu/truba")
     }
 
     stage('Test image') {
