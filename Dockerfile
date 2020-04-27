@@ -1,5 +1,5 @@
 FROM httpd
-LABEL description="LNCT Group of Colleges"
-MAINTAINER SHUBHAM RAIKWAR 
+LABEL description="Truba College"
+MAINTAINER Prakhar Animesh and Muneef 
 EXPOSE 80
-COPY ./test/ /usr/local/apache2/htdocs/
+COPY ./website/ /usr/local/apache2/htdocs/
