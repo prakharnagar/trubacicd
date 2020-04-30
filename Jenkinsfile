@@ -1,5 +1,4 @@
 node {
-	/* Continuous integration (CI), continuous delivery (CD) and continous Deployment */
     def cicd
 
     stage('Clone repository') {
@@ -11,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image from Docker File */
 
-        cicd = docker.build("prakhar77/myweb")
+        cicd = docker.build("prakhar77/webimg")
     }
 
     stage('Test image') {
@@ -22,10 +21,13 @@ node {
     }
 
     stage('Push image') {
-        /* You would need to first register with DockerHub before you can push images to your account */
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-login') {
+        /* 
+			You would need to first register with DockerHub before you can push images to your account
+		*/
+        docker.withRegistry('https://registry.hub.docker.com', 'docke-hub') {
             cicd.push("${env.BUILD_NUMBER}")
-     } 
+            cicd.push("latest")
+            } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
 }
