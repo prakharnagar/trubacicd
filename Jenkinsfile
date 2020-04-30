@@ -11,12 +11,12 @@ node {
     stage('Build image') {
         /* This builds the actual image from Docker File */
 
-        cicdpipeline = docker.build("prakhar77/web")
+        cicdpipeline = docker.build("prakhar77/webapp")
     }
 
     stage('Test image') {
         
-        cicdcd.inside {
+       cicdpipeline.inside {
             echo "Tests Passed Continous Delivery to Docker push"
         }
     }
